@@ -1,0 +1,13 @@
+this plugin apply rules before executing task, like maven enforcer plugin
+for now, it is very basic, I only implemented two rules to check jdk and gradle version
+
+how to try this plugin:
+1. git clone xxxxx (the git repo of this project)
+2. gradle clean install
+3. gradle -b example echo
+
+further:
+1. if it is the right place to perform the evaluation? (project.afterEvaluate)
+2. remove maven enforcer dependencies
+3. mutil-projects support
+4. user can provide validator class which located in the user's project

@@ -1,0 +1,31 @@
+/*
+This script add jdocbook gradle plugin support
+*/
+buildscript {
+  repositories {
+      mavenCentral()
+      mavenRepo name: "jboss", urls: "http://repository.jboss.org/nexus/content/groups/public/"
+      mavenRepo urls: "file://" + System.getProperty('user.home') + "/.m2/repository/"
+  }
+  dependencies {
+      classpath 'org.jboss.gradle.plugins:enforcer:1.0.0-SNAPSHOT'
+  }
+}
+apply plugin: 'enforcer'
+enforcer {
+	//check org.jboss.gradle.plugins.enforcer.EnforcerConvention#failPlan
+	//failPlan="fail-fast"
+	jdk "[7,)"
+	gradle "2.0"
+
+/*  not implemented yet
+	projectSpecificRule{
+		expression "should follow some project rules"
+		validator "validator class name that perform the evaluation agains the expression"
+	}
+*/
+}
+
+task echo << {
+	println "******************"
+}
